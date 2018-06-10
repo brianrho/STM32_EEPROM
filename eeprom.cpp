@@ -89,11 +89,11 @@ void EEPROM::commit(void) {
     uint16_t word_count = STM32_FLASH_PAGE_SZ / 2;
     
     while (word_count--) {
-  		halfword = *(ptr++);
-  		halfword |= *(ptr++) << 8;
-  		FLASH_ProgramHalfWord(addr, halfword);
-  		addr += 2;
-  	}
+        halfword = *(ptr++);
+        halfword |= *(ptr++) << 8;
+        FLASH_ProgramHalfWord(addr, halfword);
+        addr += 2;
+    }
     
     FLASH_Lock();
 }
